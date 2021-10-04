@@ -1,0 +1,72 @@
+
+###  Linha de comando para execução do job via power shel no spark:
+gcloud dataproc jobs wait job-inicial --project desafio-dataproc-ms --region us-central1
+
+Saída em texto:
+21/10/02 18:38:17 INFO org.sparkproject.jetty.util.log: Logging initialized @4387ms to org.sparkproject.jetty.util.log.Slf4jLog
+21/10/02 18:38:17 INFO org.sparkproject.jetty.server.Server: jetty-9.4.40.v20210413; built: 2021-04-13T20:42:42.668Z; git: b881a572662e1943a14ae12e7e1207989f218b74; jvm 1.8.0_292-b10
+21/10/02 18:38:17 INFO org.sparkproject.jetty.server.Server: Started @4602ms
+21/10/02 18:38:17 INFO org.sparkproject.jetty.server.AbstractConnector: Started ServerConnector@36279a97{HTTP/1.1, (http/1.1)}{0.0.0.0:37351}
+21/10/02 18:38:18 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at cluster-desafio-dataproc-m/10.128.0.12:8032
+21/10/02 18:38:18 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at cluster-desafio-dataproc-m/10.128.0.12:10200
+21/10/02 18:38:19 INFO org.apache.hadoop.conf.Configuration: resource-types.xml not found
+21/10/02 18:38:19 INFO org.apache.hadoop.yarn.util.resource.ResourceUtils: Unable to find 'resource-types.xml'.
+21/10/02 18:38:21 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1633190252283_0001
+21/10/02 18:38:22 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at cluster-desafio-dataproc-m/10.128.0.12:8030
+21/10/02 18:38:24 INFO com.google.cloud.hadoop.repackaged.gcs.com.google.cloud.hadoop.gcsio.GoogleCloudStorageImpl: Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+Pi is roughly 3.1417048714170486
+21/10/02 18:38:45 INFO org.sparkproject.jetty.server.AbstractConnector: Stopped Spark@36279a97{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+
+Linha de comando para uma outra possível execução:
+gcloud dataproc jobs wait job-inicial --project desafio-dataproc-ms --region us-central1
+
+Saída em texto:
+21/10/02 18:38:17 INFO org.sparkproject.jetty.util.log: Logging initialized @4387ms to org.sparkproject.jetty.util.log.Slf4jLog
+21/10/02 18:38:17 INFO org.sparkproject.jetty.server.Server: jetty-9.4.40.v20210413; built: 2021-04-13T20:42:42.668Z; git: b881a572662e1943a14ae12e7e1207989f218b74; jvm 1.8.0_292-b10
+21/10/02 18:38:17 INFO org.sparkproject.jetty.server.Server: Started @4602ms
+21/10/02 18:38:17 INFO org.sparkproject.jetty.server.AbstractConnector: Started ServerConnector@36279a97{HTTP/1.1, (http/1.1)}{0.0.0.0:37351}
+21/10/02 18:38:18 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at cluster-desafio-dataproc-m/10.128.0.12:8032
+21/10/02 18:38:18 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at cluster-desafio-dataproc-m/10.128.0.12:10200
+21/10/02 18:38:19 INFO org.apache.hadoop.conf.Configuration: resource-types.xml not found
+21/10/02 18:38:19 INFO org.apache.hadoop.yarn.util.resource.ResourceUtils: Unable to find 'resource-types.xml'.
+21/10/02 18:38:21 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1633190252283_0001
+21/10/02 18:38:22 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at cluster-desafio-dataproc-m/10.128.0.12:8030
+21/10/02 18:38:24 INFO com.google.cloud.hadoop.repackaged.gcs.com.google.cloud.hadoop.gcsio.GoogleCloudStorageImpl: Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+Pi is roughly 3.1417048714170486
+
+21/10/02 18:38:45 INFO org.sparkproject.jetty.server.AbstractConnector: Stopped Spark@36279a97{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+gcloud dataproc jobs submit spark \ 
+gcloud dataproc jobs submit spark \ --cluster=cluster-desafio-dataproc
+gcloud dataproc jobs submit spark \ > --cluster=cluster-desafio-dataproc
+gcloud dataproc jobs wait job-inicial --project desafio-dataproc-ms --region us-central1
+gcloud dataproc jobs submit spark --cluster=cluster-desafio-dataproc --region="us-central1" --class=org.apache.spark.examples.SparkPi --jars=file://usr/lib/spark/examples/jars/spark-examples.jar -- 1000
+gcloud dataproc jobs submit spark > --cluster=cluster-desafio-dataproc > --region="us-central1" > --class=org.apache.spark.examples.SparkPi > --jars=file://usr/lib/spark/examples/jars/spark-examples.jar > -- 1000
+gcloud dataproc jobs submit spark \ --cluster=cluster-desafio-dataproc --region="us-central1" --class=org.apache.spark.examples.SparkPi --jars=file://usr/lib/spark/examples/jars/spark-examples.jar -- 1000
+
+gcloud dataproc jobs submit spark --cluster=cluster-desafio-dataproc --region="us-central1" --class=org.apache.spark.examples.SparkPi --jars=file://usr/lib/spark/examples/jars/spark-examples.jar -- 1000
+gcloud dataproc jobs submit spark  --cluster=cluster-desafio-dataproc  --region="us-central1" --class=org.apache.spark.examples.SparkPi --jars=file://usr/lib/spark/examples/jars/spark-examples.jar -- 1000
+
+gcloud dataproc jobs submit spark --cluster=cluster-desafio-dataproc --region="us-central1" --class=org.apache.spark.examples.SparkPi --jars=file://usr/lib/spark/examples/jars/spark-examples.jar -- 1000
+
+gcloud compute instances list
+gcloud compute ssh instancia-hadoop --zone=us-central1-a
+gcloud dataproc jobs wait job-inicial2 --project desafio-dataproc-ms --region us-central1
+
+
+
+#### Para clonar o código do github 
+git clone https://github.com/marcelomarques05/dio-desafio-dataproc.git
+
+
+### Para ir para dio-desafio-dataproc
+cd dio-desafio-dataproc
+
+ 
+
+### Copiando para buckets 
+gsutil cp contador.py livro.txt gs://desafio-dataproc-ms
+
+
+### setando a região, provável motivo pelo qual não estava rodando. 
+gcloud config set dataproc/region us-central1
+
